@@ -1,10 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
+import { BindingUsingState } from './components/binding-using-state/binding-using-state';
+import { DataBindingByVar } from './components/databinding-by-var/databinding-by-var';
+import { ListDataBinding } from './components/list-data-binding/list-data-binding';
+import { NetflixIndex } from './netflix/netflix-index/netflix-index';
 
 function App() {
   return (
     <div className="App">
-      <h1>React 18 app</h1>
+      <BindingUsingState />
     </div>
   );
 }
