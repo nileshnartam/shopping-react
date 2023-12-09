@@ -5,10 +5,20 @@ export function ClassBinding1(){
     const [darkTheme, setDarkTheme] = useState(true);
     const [outerTheme, setOuterTheme] = useState('container-fluid d-flex justify-content-center align-items-center ch-100 bg-dark');
     const [innerTheme, setInnerTheme] = useState('w-25 bg-light text-dark p-4');
+    const [termRead, setTermRead] = useState(false);
+    const [submitBtnStyle, setSubmitBtnStyle] = useState({display:'none'});
     function handleThemeChange(ev){
         console.log(ev.target.checked);
         setOuterTheme(ev.target.checked? 'container-fluid d-flex justify-content-center align-items-center ch-100 bg-light': 'container-fluid d-flex justify-content-center align-items-center ch-100 bg-dark');
         setInnerTheme(ev.target.checked? 'w-25 bg-dark text-white p-4':'w-25 bg-light text-dark p-4');
+    }
+
+    function handleTermRead(ev){
+        if(ev.target.checked){
+            setSubmitBtnStyle({display:'block'});
+        } else {
+            setSubmitBtnStyle({display:'none'});
+        }
     }
     return (
         <div className={outerTheme}>
@@ -42,14 +52,14 @@ export function ClassBinding1(){
                     <dt></dt> 
                     <dd>
                     <div className="form-check">
-                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                    <input className="form-check-input" type="checkbox" value={termRead} id="flexCheckDefault" onChange={handleTermRead}/>
                     <label className="form-check-label" htmlFor="flexCheckDefault">
                         Agree
                     </label>
                     </div>                        
                     </dd> 
                     <dt></dt>
-                    <dd><button type="button" className="btn btn-primary w-100">Submit</button></dd>              
+                    <dd><button type="button" className="btn btn-primary w-100" style={submitBtnStyle}>Submit</button></dd>              
                 </dl>
             </div>
         </div>
